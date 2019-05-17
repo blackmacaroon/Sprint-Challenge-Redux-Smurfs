@@ -36,10 +36,10 @@ export const getSmurfs = () => dispatch => {
     })
 }
 
-export const addSmurf = () => dispatch => {
+export const addSmurf = smurf => dispatch => {
   dispatch({ type: ADDING });
   return axios
-    .post('http://localhost:3333/smurfs')
+    .post('http://localhost:3333/smurfs', smurf)
     .then(res => {
       console.log('added!', res)
       dispatch({ type: ADD_WIN, payload: res.data })

@@ -4,7 +4,10 @@
 import{
   FETCHING,
   FETCH_WIN,
-  FETCH_FAIL
+  FETCH_FAIL,
+  ADDING,
+  ADD_WIN,
+  ADD_FAIL
 } from '../actions'
 
 /*
@@ -48,6 +51,25 @@ const smurfReducer = (state = initialState, action) => {
         fetchingSmurfs: false,
         error: 'sorry, nope.'
       };
+    case ADDING:
+      return {
+        ...state,
+        addingSmurf: true,
+        error: ''
+      }
+    case ADD_WIN:
+      return {
+        ...state,
+        smurfs: action.payload,
+        addingSmurf: true,
+        error: ''
+      }
+    case ADD_FAIL:
+      return {
+        ...state,
+        addingSmurf: false,
+        error: 'no smurf for you.'
+      }
     default:
       return state;
     
