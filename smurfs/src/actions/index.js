@@ -28,10 +28,10 @@ export const getSmurfs = () => dispatch => {
     .get('http://localhost:3333/smurfs')
     .then(res => {
       console.log('fetched!', res)
-      dispatch({ FETCH_WIN, payload: res.data })
+      dispatch({ type: FETCH_WIN, payload: res.data })
     })
     .catch (err => {
       console.log('fetch fail', err)
-      dispatch({ FETCH_FAIL, err})
+      dispatch({ type: FETCH_FAIL, payload: err})
     })
 }

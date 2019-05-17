@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
+import { getSmurfs } from '../actions'
 import './App.css';
 /*
  to wire this component up you're going to need a few things.
@@ -21,8 +22,18 @@ class App extends Component {
     return (
       <div className="App">
         <h1>SMURFS! </h1>
-        <div>Smurfs!</div>
-        <div>Smurf!</div>
+        <div className='smurf-list'>
+          {this.props.smurfs.map(smurf => (
+            <div className='smurf-card' key={smurf.id}>
+              <h3>{smurf.name}</h3>
+              <p>{smurf.age} years old.</p>
+              <p>height: {smurf.height}</p>
+            </div>
+  
+          ))}
+        </div>
+        
+        
       </div>
     );
   }

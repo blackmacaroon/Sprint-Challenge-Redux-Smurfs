@@ -38,7 +38,8 @@ const smurfReducer = (state = initialState, action) => {
     case FETCH_WIN:
       return {
         ...state,
-        fetchingSmurfs: true,
+        smurfs: action.payload,
+        fetchingSmurfs: false,
         error: ''
       };
     case FETCH_FAIL: 
