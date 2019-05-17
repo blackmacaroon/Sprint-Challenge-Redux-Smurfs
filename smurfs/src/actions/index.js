@@ -32,6 +32,20 @@ export const getSmurfs = () => dispatch => {
     })
     .catch (err => {
       console.log('fetch fail', err)
-      dispatch({ type: FETCH_FAIL, payload: err})
+      dispatch({ type: FETCH_FAIL, payload: err })
+    })
+}
+
+export const addSmurf = () => dispatch => {
+  dispatch({ type: ADDING });
+  return axios
+    .post('http://localhost:3333/smurfs')
+    .then(res => {
+      console.log('added!', res)
+      dispatch({ type: ADD_WIN, payload: res.data })
+    })
+    .catch (err => {
+      console.log('add fail', err)
+      dispatch({ type: ADD_FAIL, payload: err })
     })
 }
