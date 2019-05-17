@@ -56,20 +56,20 @@ const smurfReducer = (state = initialState, action) => {
         ...state,
         addingSmurf: true,
         error: ''
-      }
+      };
     case ADD_WIN:
       return {
         ...state,
         smurfs: action.payload,
         addingSmurf: false,
         error: ''
-      }
+      };
     case ADD_FAIL:
       return {
         ...state,
         addingSmurf: false,
         error: 'no smurf for you.'
-      }
+      };
     default:
       return state;
     

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { addSmurf } from '../actions';
 
 
@@ -42,6 +43,7 @@ class SmurfForm extends React.Component {
                                     placeholder='name'
                                     value={this.state.newSmurf.name}
                                     name='name'
+                                    type='text'
                               />
                               <div className='baseline' />
                               <input
@@ -49,6 +51,7 @@ class SmurfForm extends React.Component {
                                     placeholder='age'
                                     value={this.state.newSmurf.age}
                                     name='age'
+                                    type='text'
                               />
                               <div className='baseline' />
                               <input
@@ -66,4 +69,9 @@ class SmurfForm extends React.Component {
       }
 }
 
-export default SmurfForm;
+const mapStateToProps = state => ({})
+
+export default connect(
+      mapStateToProps,
+      { addSmurf }
+)(SmurfForm);
