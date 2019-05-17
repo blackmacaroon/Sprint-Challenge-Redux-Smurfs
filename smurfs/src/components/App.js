@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-import { getSmurfs } from '../actions'
+import { getSmurfs, addSmurf } from '../actions'
+import SmurfForm from './Form';
 import './App.css';
 /*
  to wire this component up you're going to need a few things.
@@ -32,7 +33,7 @@ class App extends Component {
   
           ))}
         </div>
-        
+        <SmurfForm />
         
       </div>
     );
@@ -48,5 +49,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getSmurfs }
+  { getSmurfs, addSmurf }
 )(App);

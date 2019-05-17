@@ -61,7 +61,7 @@ const smurfReducer = (state = initialState, action) => {
       return {
         ...state,
         smurfs: action.payload,
-        addingSmurf: true,
+        addingSmurf: false,
         error: ''
       }
     case ADD_FAIL:

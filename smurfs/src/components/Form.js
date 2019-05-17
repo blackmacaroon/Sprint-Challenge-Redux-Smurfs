@@ -1,43 +1,60 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { addSmurf } from '../actions';
+
 
 class SmurfForm extends React.Component {
       state = {
-            name: '',
-            age: '',
-            height: ''
+            newSmurf: {
+                  name: '',
+                  age: '',
+                  height: ''
+            }
       }
 
-      handleChanges = e => {
+      handleInputChange = e => {
             this.setState({
-                  ...this.state,
-                  [e.target.name]: e.target.value
+                  newSmurf: {
+                        ...this.state.newSmurf,
+                        [e.target.name]: e.target.value
+                  }
             })
       }
+
+      handleSubmit = e => {
+            e.preventDefault();
+            this.props.addSmurf(this.state.newSmurf)
+            this.setState({
+                  newSmurf: {
+                        name: '',
+                        age: '',
+                        height: ''
+                  }
+            })
+      }
+
 
       render() {
             return (
                   <div className='SmurfForm'>
-                        <form onSubmit={this.addSmurf}>
+                        <form onSubmit={this.handleSubmit}>
                               <input
                                     onChange={this.handleInputChange}
                                     placeholder='name'
-                                    value={this.state.name}
+                                    value={this.state.newSmurf.name}
                                     name='name'
                               />
                               <div className='baseline' />
                               <input
                                     onChange={this.handleInputChange}
                                     placeholder='age'
-                                    value={this.state.age}
+                                    value={this.state.newSmurf.age}
                                     name='age'
                               />
                               <div className='baseline' />
                               <input
                                     onChange={this.handleInputChange}
                                     placeholder='height'
-                                    value={this.state.height}
+                                    value={this.state.newSmurf.height}
                                     name='height'
                               />
                               <div className='baseline' />
@@ -49,3 +66,4 @@ class SmurfForm extends React.Component {
       }
 }
 
+export default SmurfForm;

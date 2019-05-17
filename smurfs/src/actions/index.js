@@ -9,8 +9,8 @@ export const FETCH_FAIL = 'FETCH_FAIL';
 export const ADDING = 'ADDING';
 export const ADD_WIN = 'ADD_WIN';
 export const ADD_FAIL = 'ADD_FAIL';
-export const UPDATING = 'UPDATING';
-export const DELETING = 'DELETING';
+// export const UPDATING = 'UPDATING';
+// export const DELETING = 'DELETING';
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
@@ -24,7 +24,7 @@ export const DELETING = 'DELETING';
 */
 export const getSmurfs = () => dispatch => {
   dispatch({ type: FETCHING });
-  return axios
+  axios
     .get('http://localhost:3333/smurfs')
     .then(res => {
       console.log('fetched!', res)
@@ -38,7 +38,7 @@ export const getSmurfs = () => dispatch => {
 
 export const addSmurf = smurf => dispatch => {
   dispatch({ type: ADDING });
-  return axios
+  axios
     .post('http://localhost:3333/smurfs', smurf)
     .then(res => {
       console.log('added!', res)
